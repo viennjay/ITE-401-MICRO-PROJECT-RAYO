@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --primary-dark: #0056b3;
+    --background-color: #f0f0f0;
+    --form-background: #ffffff;
+    --text-color: #333333;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #28a745;
+    --error-color: #dc3545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: var(--background-color);
+    background-image: 
+        linear-gradient(45deg, rgba(0,123,255,0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0,123,255,0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0,123,255,0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0,123,255,0.1) 75%);
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    background-color: var(--form-background);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 20px var(--shadow-color),
+        0 6px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 30px var(--shadow-color),
+        0 10px 10px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '▼';
+    font-size: 12px;
+    color: var(--primary-color);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+select, input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: var(--form-background);
+    transition: all 0.3s ease;
+    appearance: none;
+}
+
+select {
+    cursor: pointer;
+    padding-right: 40px;
+}
+
+select:focus, input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.button-icon {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+button:hover .button-icon {
+    transform: translateX(5px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 25px;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+
+    select, input[type="date"] {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 25px;
+    }
+}
+
+/* Custom date input styles for different browsers */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    padding: 5px;
+    color: var(--primary-color);
+}
+
+/* Animation for form load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    animation: fadeIn 0.5s ease-out;
+}

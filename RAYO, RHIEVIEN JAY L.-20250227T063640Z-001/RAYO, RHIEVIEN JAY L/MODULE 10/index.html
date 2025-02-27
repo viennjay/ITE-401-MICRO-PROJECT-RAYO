@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day10 Activity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">City & Date Selection</h1>
+                <p class="form-subtitle">Please select your preferences below</p>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">City</span>
+                </div>
+                <div class="progress-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Date</span>
+                </div>
+            </div>
+
+            <form class="form-content">
+                <div class="form-group">
+                    <label for="city">Select a City:</label>
+                    <div class="select-wrapper">
+                        <select id="city" name="city" required>
+                            <option value="" disabled selected>Choose a city...</option>
+                            <option value="iloilo city">Iloilo City</option>
+                            <option value="guimaras">Guimaras</option>
+                            <option value="roxas">Roxas</option>
+                            <option value="antique">Antique</option>
+                        </select>
+                    </div>
+                    <span class="form-tip">Click to select your preferred city</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Select a Date:</label>
+                    <div class="date-wrapper">
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <span class="form-tip">Choose your preferred date</span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="button-content">
+                        <span class="button-text">Submit</span>
+                        <span class="button-icon">→</span>
+                    </span>
+                    <span class="button-background"></span>
+                </button>
+            </form>
+
+            <div class="form-footer">
+                <p>All fields are required</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
